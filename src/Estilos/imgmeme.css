@@ -1,0 +1,99 @@
+body{
+box-sizing: border-box;
+  height: 100vh;
+  background-image: linear-gradient(to right, rgba(17, 120, 169, 0.794), yellow);
+  background-size: cover;
+
+}
+
+figure {
+
+    position: relative;
+    width: max-content;
+    margin: auto;
+
+}
+
+
+
+.colorInput{
+    align-self: center;
+}
+
+figure p {
+    display: block;
+    position: absolute;
+
+    overflow-wrap: break-word;
+
+    right: 0;
+    left: 0;
+    margin: 20px 0;
+    font-size: 60px;
+    color: black;
+    font-weight: 700;
+    text-transform: uppercase;
+
+}
+
+.mid {
+  
+    bottom: 40%;
+    top: 40%;
+    margin: auto;
+}
+
+.up {
+   
+    top: 0;
+    margin: auto;
+}
+
+.down {
+   
+    bottom: 0;
+    margin: auto;
+    
+}
+
+
+
+figure img {
+
+    position: relative;
+
+    width: 400px;
+    height: max-content;
+    left: 0;
+    
+    object-fit: fill;
+
+}
+
+.card-img{
+    height: 300px;
+    object-fit: cover;
+}
+
+.down-btn {
+    margin: 20px;
+    color: #0a2894;
+    font-weight: 700;
+    box-shadow:3px 3px #0a289486;
+}
+
+.hidden{
+    display: none;
+}
+
+@media only screen and (min-width:600px){
+    figure img {
+        width: 550px;
+        height: max-content;
+    }
+    .down-btn {
+        margin-bottom: 70px;
+    }
+
+
+}
