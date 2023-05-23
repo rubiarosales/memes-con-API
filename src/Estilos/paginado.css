@@ -1,0 +1,22 @@
+.paginate-container ul {
+    display: flex;
+    margin: 5px;
+    justify-content: center;
+    list-style: none;
+    text-decoration: none;
+   
+}
+
+.paginate-container ul li{
+margin: 2px;
+padding: 2px 5px;
+border: 1px solid black;
+border-radius: 5px;
+}
+
+.paginate-container ul li:first-child ,
+.paginate-container ul li:last-child,
+.paginate-container .break{
+ border: none;
+
+}

@@ -97,3 +97,16 @@ figure img {
 
 
 }
+
+@media only screen and (min-width:1200px){
+    figure img {
+        width: 800px;
+      
+    }
+
+    .card-img{
+        height: 400px;
+        
+    }
+
+}

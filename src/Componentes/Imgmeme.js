@@ -6,6 +6,8 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
+import ReactPaginate from "react-paginate";
+import '../Estilos/paginado.css';
 
 
 const Imgmeme = () => {
@@ -28,12 +30,13 @@ const Imgmeme = () => {
     // }
     // );
 
+
+
     // IMGFILM
     useEffect(() => {
         fetch(URL)
             .then(data => data.json())
             .then(json => setImgmeme(json.data.memes))
-
     }
 
     );
@@ -75,25 +78,6 @@ const Imgmeme = () => {
     }
 
 
-    // switch (selectPostext) {
-    //     case 'up':
-    //         //  textoP.className="texto-up";
-    //         return console.log("texto-up");
-    //         break;
-    //     case 'mid':
-    //         // textoP.className="texto-mid";
-    //         return console.log("texto-mid");
-    //         break;
-    //     case 'down':
-    //         // textoP.className="texto-down";
-    //         return console.log("texto-down");
-    //         break;
-    //     default:
-    //     //  textoP.className="texto-up";
-    // }
-
-
-
     const descarga = (e) => {
         html2canvas(document.getElementById("exportar"), { useCORS: true }).then(function (canvas) {
             // document.body.appendChild(canvas);
@@ -106,6 +90,18 @@ const Imgmeme = () => {
     }
 
 
+    //paginado con react-paginate
+    const [paginaActual, setPaginaActual] = useState(0);
+    const itemsPP = 4;
+    const nroPaginas = Math.ceil(imgmeme.length / itemsPP);
+
+    const manejarCambioDePagina = (seleccion) => {
+        setPaginaActual(seleccion.selected);
+    };
+
+    const ultimoMeme = (paginaActual + 1) * itemsPP;
+    const primerMeme = ultimoMeme - itemsPP;
+    const memesActuales = imgmeme.slice(primerMeme, ultimoMeme);
 
     return (
         <div>
@@ -131,8 +127,8 @@ const Imgmeme = () => {
                     <p>Selecciona una imagen para tu meme</p>
                 </div>
                 <Container >
-                    <Row xs={1} sm={2} lg={3} className="g-2 mx-0 px-0">
-                        {imgmeme.map((img) => (
+                    <Row xs={1} sm={2} lg={2} xl={4} className="g-3 mx-0 px-0">
+                        {memesActuales.map((img) => (
                             <Col key={img.id}>
                                 <Card className='cardMeme'>
                                     <Card.Img onClick={selectImg} variant="top" src={img.url} className='card-img' />
@@ -140,6 +136,20 @@ const Imgmeme = () => {
                             </Col>
                         ))}
                     </Row>
+
+                    <div className="paginate-container">
+                        <ReactPaginate
+                            breakLabel="..."
+                            nextLabel="Sig. >"
+                            onPageChange={manejarCambioDePagina}
+                            pageRangeDisplayed={itemsPP}
+                            pageCount={nroPaginas}
+                            previousLabel="< Ant."
+                            renderOnZeroPageCount={null}
+                        />
+                    </div>
+
+
                 </Container>
 
                 <form className='d-flex col-md-8 m-1 '>
