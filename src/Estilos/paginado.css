@@ -4,19 +4,27 @@
     justify-content: center;
     list-style: none;
     text-decoration: none;
+    padding: 0;
    
 }
 
 .paginate-container ul li{
-margin: 2px;
-padding: 2px 5px;
-border: 1px solid black;
-border-radius: 5px;
+margin: 1px;
+width: max-content;
+padding: 1px;
+text-decoration: underline;
+/* border: 1px solid black; */
+/* border-radius: 5px; */
 }
 
-.paginate-container ul li:first-child ,
+.paginate-container ul li:first-child,
 .paginate-container ul li:last-child,
+.paginate-container ul li:first-child a,
+.paginate-container ul li:last-child a,
 .paginate-container .break{
  border: none;
-
+ text-decoration: none;
+ color: black;
+ margin: 3px;
+ 
 }
